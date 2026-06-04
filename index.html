@@ -9,9 +9,9 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#top" aria-label="처음으로"><span class="seal">PNU</span><span>부산대학교</span></a>
+    <a class="brand" href="#" onclick="goHome(); return false;" aria-label="처음으로"><span class="seal">PNU</span><span>부산대학교</span></a>
     <nav>
-      <a href="#why">왜 대학원인가?</a><a href="#check">지원 자격</a><a href="#benefits">혜택</a><a href="#departments">학과</a><a href="#schedule">일정</a><a href="#faq">Q&A</a>
+      <a href="#" onclick="openSection('why'); return false;">왜 대학원인가?</a><a href="#" onclick="openSection('check'); return false;">지원 자격</a><a href="#" onclick="openSection('benefits'); return false;">혜택</a><a href="#" onclick="openSection('departments'); return false;">학과</a><a href="#" onclick="openSection('schedule'); return false;">일정</a><a href="#" onclick="openSection('faq'); return false;">Q&A</a>
     </nav>
   </header>
 
@@ -19,20 +19,21 @@
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">2026학년도 2학기 모집</p>
-        <h1 class="single-line-title">나에게 맞는 대학원 진학경로,<br>다섯개의 질문과 함께 확인하세요</h1>
+        <h1 class="single-line-title">나에게 맞는 대학원 진학경로,<br>5가지 질문으로 확인하세요</h1>
         <p class="lead">학·석사 연계과정과 학·석박사통합 연계과정은 학사과정과 일반대학원 과정을 연계해 전공교육의 연속성을 높이고, 학생의 시간적·재정적 부담을 줄이는 제도입니다.</p>
-        <div class="hero-actions"><a class="btn primary" href="#check">내 지원 가능성 확인하기</a><a class="btn ghost" href="#departments">학과 둘러보기</a></div>
+        <div class="hero-actions"><a class="btn primary" href="#" onclick="openSection('check'); return false;">내 지원 가능성 확인하기</a><a class="btn ghost" href="#" onclick="openSection('departments'); return false;">학과 둘러보기</a></div>
       </div>
       <div class="hero-panel five-questions" aria-label="5가지 핵심 질문">
-        <a href="#why"><span>01</span><b>왜 대학원인가?</b><small>연구·진로 확장</small></a>
-        <a href="#check"><span>02</span><b>어떤 자격이 필요한가?</b><small>학기·학점·평점</small></a>
-        <a href="#benefits"><span>03</span><b>어떤 혜택이 있는가?</b><small>장학금·졸업요건</small></a>
-        <a href="#departments"><span>04</span><b>어떤 학과가 있는가?</b><small>학과 검색·홈페이지</small></a>
-        <a href="#schedule"><span>05</span><b>언제 신청할 수 있는가?</b><small>2학기 모집 일정</small></a>
+        <a href="#" onclick="openSection('why'); return false;"><span>01</span><b>왜 대학원인가?</b><small>연구·진로 확장</small></a>
+        <a href="#" onclick="openSection('check'); return false;"><span>02</span><b>어떤 자격이 필요한가?</b><small>학기·학점·평점</small></a>
+        <a href="#" onclick="openSection('benefits'); return false;"><span>03</span><b>어떤 혜택이 있는가?</b><small>장학금·졸업요건</small></a>
+        <a href="#" onclick="openSection('departments'); return false;"><span>04</span><b>어떤 학과가 있는가?</b><small>학과 검색·홈페이지</small></a>
+        <a href="#" onclick="openSection('schedule'); return false;"><span>05</span><b>언제 신청할 수 있는가?</b><small>2학기 모집 일정</small></a>
       </div>
     </section>
 
-    <section id="why" class="section split">
+    <section id="why" class="content-section section split">
+      <button class="back-btn" type="button" onclick="goHome()">← 처음으로</button>
       <div>
         <p class="section-kicker">01 WHY GRADUATE SCHOOL</p>
         <h2>왜 대학원인가?</h2>
@@ -45,7 +46,8 @@
       </div>
     </section>
 
-    <section id="check" class="section checker">
+    <section id="check" class="content-section section checker">
+      <button class="back-btn" type="button" onclick="goHome()">← 처음으로</button>
       <div class="section-title">
         <p class="section-kicker">02 ELIGIBILITY CHECK</p>
         <h2>어떤 자격이 필요한가?</h2>
@@ -82,7 +84,8 @@
       </div>
     </section>
 
-    <section id="credits" class="section soft">
+    <section id="credits" class="content-section section soft">
+      <button class="back-btn" type="button" onclick="goHome()">← 처음으로</button>
       <p class="section-kicker">03 HOW TO CHECK CREDITS</p>
       <h2>학점과 학기는 이렇게 확인하세요</h2>
       <ol class="steps">
@@ -93,7 +96,8 @@
       </ol>
     </section>
 
-    <section id="benefits" class="section">
+    <section id="benefits" class="content-section section">
+      <button class="back-btn" type="button" onclick="goHome()">← 처음으로</button>
       <div class="section-title">
         <p class="section-kicker">04 BENEFITS</p>
         <h2>어떤 혜택이 있는가?</h2>
@@ -113,7 +117,8 @@
       </tbody></table></div>
     </section>
 
-    <section id="departments" class="section soft">
+    <section id="departments" class="content-section section soft">
+      <button class="back-btn" type="button" onclick="goHome()">← 처음으로</button>
       <div class="section-title">
         <p class="section-kicker">05 DEPARTMENTS</p>
         <h2>어떤 학과가 있는가?</h2>
@@ -132,7 +137,8 @@
       <div class="graduate-dept-grid" id="graduateDeptGrid"></div>
     </section>
 
-    <section id="schedule" class="section">
+    <section id="schedule" class="content-section section">
+      <button class="back-btn" type="button" onclick="goHome()">← 처음으로</button>
       <p class="section-kicker">06 SCHEDULE</p><h2>2026학년도 2학기 전형 일정</h2>
       <div class="timeline">
         <div><time>추후 공지</time><b>지원서 교부·접수</b><span>진학 희망 대학원 소속 단과대학 행정실 제출</span></div>
@@ -142,7 +148,8 @@
       </div>
     </section>
 
-    <section id="faq" class="section soft">
+    <section id="faq" class="content-section section soft">
+      <button class="back-btn" type="button" onclick="goHome()">← 처음으로</button>
       <p class="section-kicker">07 FAQ</p><h2>자주 묻는 질문</h2>
       <details open><summary>학사과정과 대학원 학과가 달라도 지원할 수 있나요?</summary><p>가능합니다. 다만 소속대학 학과(부)장 또는 지도교수의 추천을 받아야 하며, 진학 희망 대학원 학과의 선수과목을 졸업 전까지 이수해야 할 수 있습니다.</p></details>
       <details><summary>대학원 입학시험을 따로 보나요?</summary><p>대학원 입학 무시험 특별전형으로 선발됩니다. 다만 학과가 희망하는 경우 면접을 실시할 수 있습니다.</p></details>
@@ -150,7 +157,8 @@
       <details><summary>포기하면 장학금은 어떻게 되나요?</summary><p>석사 또는 박사과정 중 중도 포기하는 경우, 포기한 날이 속하는 학기의 장학금은 반납해야 합니다. BK21 Bridge 장학금 및 장려금은 별도 기준을 따릅니다.</p></details>
     </section>
 
-    <section id="contact" class="section contact">
+    <section id="contact" class="content-section section contact">
+      <button class="back-btn" type="button" onclick="goHome()">← 처음으로</button>
       <div><p class="section-kicker">CONTACT</p><h2>문의처</h2></div>
       <div class="contact-grid">
         <p><b>학사과</b><span>학적 051-510-1212~3 / 수업 051-510-1221~3</span></p>
@@ -163,6 +171,27 @@
 
   <footer>© Pusan National University · 학·석사/학·석박사통합 연계과정 안내 페이지 초안</footer>
 <script>
+
+function openSection(sectionId) {
+  const hero = document.querySelector('.hero');
+  if (hero) hero.style.display = 'none';
+  document.querySelectorAll('.content-section').forEach(section => {
+    section.classList.remove('active');
+  });
+  const target = document.getElementById(sectionId);
+  if (target) {
+    target.classList.add('active');
+    target.scrollTop = 0;
+  }
+}
+function goHome() {
+  document.querySelectorAll('.content-section').forEach(section => {
+    section.classList.remove('active');
+  });
+  const hero = document.querySelector('.hero');
+  if (hero) hero.style.display = 'grid';
+}
+
 const DEPT_OPTIONS = [{"label": "간호대학 간호학과", "total": 134, "semCredits": [17, 34, 51, 68, 85, 102, 118, 134, null, null, null, null], "source": "간호대학 간호학과", "note": ""}, {"label": "경영대학 경영학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "경제통상대학 국제학부", "total": 125, "semCredits": [16, 32, 48, 64, 80, 96, 110.5, 125, null, null, null, null], "source": "경제통상대학 국제학부", "note": ""}, {"label": "경제통상대학 국제학부를 제외한 전 학과(부)", "total": 128, "semCredits": [16, 32, 48, 64, 80, 96, 112, 128, null, null, null, null], "source": "경제통상대학 국제학부를 제외한 전 학과(부)", "note": "국제학부는 125학점 기준을 선택"}, {"label": "공과대학 건축학과", "total": 168, "semCredits": [17, 34, 51, 68, 85, 102, 119, 136, 152, 168, null, null], "source": "공과대학 건축학과", "note": ""}, {"label": "공과대학 건축학과를 제외한 전 학과(부)", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": "건축학과는 168학점 기준을 선택"}, {"label": "글로벌자유전공학부", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "나노과학기술대학 전 학과", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": "나노과학기술대학 소속 학과 공통 기준"}, {"label": "사범대학 교육학과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 국어교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 독어교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 물리교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 불어교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 생물교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 수학교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 역사교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 영어교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 유아교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 윤리교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 일반사회교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 지구과학교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 지리교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 체육교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 특수교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 화학교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사회과학대학 문헌정보학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": ""}, {"label": "사회과학대학 미디어커뮤니케이션학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "사회과학대학 사회복지학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": ""}, {"label": "사회과학대학 사회학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "사회과학대학 심리학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "사회과학대학 정치외교학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "사회과학대학 행정학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "생명자원과학대학 IT응용공학과", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": ""}, {"label": "생명자원과학대학 동물생명자원과학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 바이오산업기계공학과", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": ""}, {"label": "생명자원과학대학 바이오소재과학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 바이오환경에너지학과", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": ""}, {"label": "생명자원과학대학 생명환경화학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 식물생명과학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 식품공학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 식품자원경제학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": ""}, {"label": "생명자원과학대학 원예생명과학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 조경학과", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": ""}, {"label": "생활과학대학 스포츠과학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "생활과학대학 스포츠과학과를 제외한 전 학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": "스포츠과학과는 126학점 기준을 선택"}, {"label": "약학대학 약학부", "total": 229, "semCredits": [19.5, 39, 59, 79, 99.5, 120, 139, 158, 179.5, 201, 215, 229], "source": "약학대학 약학부", "note": ""}, {"label": "예술대학 전 학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": "예술대학 소속 학과 공통 기준"}, {"label": "원예생명과학과 특성화고졸재직자", "total": 120, "semCredits": [16, 32, 46, 60, 75, 90, 105, 120, null, null, null, null], "source": "원예생명과학과 특성화고졸재직자", "note": ""}, {"label": "의과대학 의예과", "total": 82, "semCredits": [20.5, 41, 61.5, 82, null, null, null, null, null, null, null, null], "source": "의과대학 의예과", "note": ""}, {"label": "의과대학 의학과", "total": 181, "semCredits": [20, 40, 60, 80, 100, 120, 150.5, 181, null, null, null, null], "source": "의과대학 의학과", "note": ""}, {"label": "인문대학 전 학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": "인문대학 소속 학과 공통 기준"}, {"label": "자연과학대학 전 학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": "자연과학대학 소속 학과 공통 기준"}, {"label": "정보의생명공학대학 전 학과(부)", "total": 133, "semCredits": [17, 34, 51, 68, 85, 102, 117.5, 133, null, null, null, null], "source": "정보의생명공학대학 전 학과(부)", "note": "정보의생명공학대학 소속 학과(부) 공통 기준"}, {"label": "치의학전문대학원 학·석사통합과정 중 학사과정", "total": 104, "semCredits": [17.5, 35, 52.5, 70, 87, 104, null, null, null, null, null, null], "source": "치의학전문대학원 및 한의학전문대학원 학·석사통합과정 중 학사과정", "note": ""}, {"label": "한의학전문대학원 학·석사통합과정 중 학사과정", "total": 104, "semCredits": [17.5, 35, 52.5, 70, 87, 104, null, null, null, null, null, null], "source": "치의학전문대학원 및 한의학전문대학원 학·석사통합과정 중 학사과정", "note": ""}];
 
 const GRAD_DEPARTMENTS = [

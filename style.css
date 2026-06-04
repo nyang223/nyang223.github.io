@@ -33,3 +33,61 @@
 .hero-copy{text-align:center;max-width:1180px;margin:0 auto}.single-line-title{white-space:nowrap;font-size:clamp(28px,4.2vw,56px);letter-spacing:-.06em}.lead{margin-left:auto;margin-right:auto;font-size:18px}.hero-actions{justify-content:center;margin-top:22px}.hero-panel.five-questions{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;align-self:stretch;max-width:1280px;width:100%;margin:0 auto}.hero-panel.five-questions a{display:flex;flex-direction:column;gap:8px;min-height:150px;padding:22px 16px;border-radius:24px;background:white;text-decoration:none;box-shadow:0 18px 45px rgba(12,45,87,.12);border:1px solid #e9eef5;transition:.2s ease}.hero-panel.five-questions a:hover{transform:translateY(-4px);box-shadow:0 24px 58px rgba(12,45,87,.16)}.hero-panel.five-questions span{display:inline-flex;width:max-content;border-radius:999px;padding:4px 10px;background:var(--mint);color:var(--green);font-weight:900}.hero-panel.five-questions b{font-size:19px;line-height:1.25;color:var(--navy)}.hero-panel.five-questions small{color:var(--muted);font-weight:800}.notice-row{grid-template-columns:repeat(2,1fr)}
 @media(max-width:1100px){.single-line-title{white-space:normal}.hero-panel.five-questions{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{min-height:auto}}
 @media(max-width:640px){.hero-panel.five-questions{grid-template-columns:1fr}.hero-panel.five-questions a{min-height:auto}.notice-row{grid-template-columns:1fr}}
+
+/* Single-screen navigation update */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.topbar, footer {
+  display: none !important;
+}
+main#top {
+  height: 100vh;
+  overflow: hidden;
+}
+.hero {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+}
+.single-line-title {
+  white-space: normal !important;
+}
+.content-section {
+  display: none !important;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 82px 7vw 56px;
+  box-sizing: border-box;
+}
+.content-section.active {
+  display: block !important;
+}
+.back-btn {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  z-index: 1000;
+  border: 0;
+  border-radius: 999px;
+  padding: 11px 18px;
+  background: #0c2d57;
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 12px 28px rgba(12,45,87,.18);
+  cursor: pointer;
+}
+.back-btn:hover {
+  background: #005bac;
+}
+.hero-panel.five-questions a,
+.hero-actions .btn {
+  cursor: pointer;
+}
+@media(max-width:1100px){
+  html, body, main#top { overflow: hidden; }
+  .hero { height: 100vh !important; min-height: 100vh !important; }
+  .content-section { padding: 76px 6vw 48px; }
+}
