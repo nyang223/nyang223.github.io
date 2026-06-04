@@ -114,14 +114,22 @@
     </section>
 
     <section id="departments" class="section soft">
-      <p class="section-kicker">05 DEPARTMENTS</p>
-      <h2>어떤 학과가 있는가?</h2>
-      <p>일반대학원에 설치된 학과를 대상으로 하며, 협동과정 및 계약학과는 원칙적으로 제외됩니다. 대학원 학과별 홍보 내용은 카드 형태로 추가할 수 있습니다.</p>
-      <div class="dept-cards">
-        <article><h3>모집학과 안내</h3><p>희망 대학원 학과의 모집 여부, 선발 기준, 면접 실시 여부를 확인하세요.</p><a href="#contact">문의처 보기</a></article>
-        <article><h3>연구실 소개 영역</h3><p>교수진, 연구주제, 연구실 지원, 졸업 후 진로를 학과별로 배치할 수 있습니다.</p><a href="#">학과 카드 추가 예정</a></article>
-        <article><h3>전공 불일치 지원 가능</h3><p>학사과정 학과와 대학원 학과가 달라도 지원할 수 있으나, 추천과 선수과목 확인이 필요합니다.</p><a href="#faq">관련 Q&A</a></article>
+      <div class="section-title">
+        <p class="section-kicker">05 DEPARTMENTS</p>
+        <h2>어떤 학과가 있는가?</h2>
+        <p>부산대학교 일반대학원 학과안내 정보를 바탕으로 위치, 전화번호, 홈페이지 바로가기를 카드형 배너로 구성했습니다. 학과명 또는 계열로 검색해 원하는 대학원 학과를 빠르게 확인할 수 있습니다.</p>
       </div>
+      <div class="department-tools" aria-label="학과 검색 및 계열 필터">
+        <label class="dept-search">학과 검색
+          <input id="graduateDeptSearch" type="search" placeholder="예: 경영학과, AI전공, 유아교육학과" />
+        </label>
+        <div class="dept-tabs" id="graduateDeptTabs" aria-label="계열 선택"></div>
+      </div>
+      <div class="dept-info-note">
+        <b>안내</b>
+        <span>학과별 세부 전형, 면접 여부, 모집인원은 지원 학과 사무실에서 최종 확인해야 합니다. 홈페이지가 공개되지 않은 학과는 전화 문의 버튼을 우선 배치했습니다.</span>
+      </div>
+      <div class="graduate-dept-grid" id="graduateDeptGrid"></div>
     </section>
 
     <section id="schedule" class="section">
@@ -156,6 +164,1123 @@
   <footer>© Pusan National University · 학·석사/학·석박사통합 연계과정 안내 페이지 초안</footer>
 <script>
 const DEPT_OPTIONS = [{"label": "간호대학 간호학과", "total": 134, "semCredits": [17, 34, 51, 68, 85, 102, 118, 134, null, null, null, null], "source": "간호대학 간호학과", "note": ""}, {"label": "경영대학 경영학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "경제통상대학 국제학부", "total": 125, "semCredits": [16, 32, 48, 64, 80, 96, 110.5, 125, null, null, null, null], "source": "경제통상대학 국제학부", "note": ""}, {"label": "경제통상대학 국제학부를 제외한 전 학과(부)", "total": 128, "semCredits": [16, 32, 48, 64, 80, 96, 112, 128, null, null, null, null], "source": "경제통상대학 국제학부를 제외한 전 학과(부)", "note": "국제학부는 125학점 기준을 선택"}, {"label": "공과대학 건축학과", "total": 168, "semCredits": [17, 34, 51, 68, 85, 102, 119, 136, 152, 168, null, null], "source": "공과대학 건축학과", "note": ""}, {"label": "공과대학 건축학과를 제외한 전 학과(부)", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": "건축학과는 168학점 기준을 선택"}, {"label": "글로벌자유전공학부", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "나노과학기술대학 전 학과", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": "나노과학기술대학 소속 학과 공통 기준"}, {"label": "사범대학 교육학과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 국어교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 독어교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 물리교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 불어교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 생물교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 수학교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 역사교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 영어교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 유아교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 윤리교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 일반사회교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 지구과학교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 지리교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 체육교육과", "total": 135, "semCredits": [17, 34, 51, 68, 85, 102, 118.5, 135, null, null, null, null], "source": "사범대학 국어교육과·영어교육과·독어교육과·불어교육과·교육학과·일반사회교육과·역사교육과·지리교육과·윤리교육과·체육교육과", "note": ""}, {"label": "사범대학 특수교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사범대학 화학교육과", "total": 141, "semCredits": [17.5, 35, 52.5, 70, 87.5, 105, 123, 141, null, null, null, null], "source": "사범대학 수학교육과·물리교육과·화학교육과·생물교육과·지구과학교육과·유아교육과·특수교육과", "note": ""}, {"label": "사회과학대학 문헌정보학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": ""}, {"label": "사회과학대학 미디어커뮤니케이션학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "사회과학대학 사회복지학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": ""}, {"label": "사회과학대학 사회학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "사회과학대학 심리학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "사회과학대학 정치외교학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "사회과학대학 행정학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "생명자원과학대학 IT응용공학과", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": ""}, {"label": "생명자원과학대학 동물생명자원과학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 바이오산업기계공학과", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": ""}, {"label": "생명자원과학대학 바이오소재과학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 바이오환경에너지학과", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": ""}, {"label": "생명자원과학대학 생명환경화학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 식물생명과학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 식품공학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 식품자원경제학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": ""}, {"label": "생명자원과학대학 원예생명과학과", "total": 132, "semCredits": [16.5, 33, 49.5, 66, 82.5, 99, 115.5, 132, null, null, null, null], "source": "생명자원과학대학 식물생명과학과·원예생명과학과·동물생명자원과학과·식품공학과·생명환경화학과·바이오소재과학과", "note": ""}, {"label": "생명자원과학대학 조경학과", "total": 137, "semCredits": [17, 34, 51, 68, 85, 102, 119.5, 137, null, null, null, null], "source": "공과대학 건축학과를 제외한 전 학과(부), 나노과학기술대학 전 학과, 생명자원과학대학 바이오산업기계공학과·IT응용공학과·바이오환경에너지학과·조경학과", "note": ""}, {"label": "생활과학대학 스포츠과학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": ""}, {"label": "생활과학대학 스포츠과학과를 제외한 전 학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": "스포츠과학과는 126학점 기준을 선택"}, {"label": "약학대학 약학부", "total": 229, "semCredits": [19.5, 39, 59, 79, 99.5, 120, 139, 158, 179.5, 201, 215, 229], "source": "약학대학 약학부", "note": ""}, {"label": "예술대학 전 학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": "예술대학 소속 학과 공통 기준"}, {"label": "원예생명과학과 특성화고졸재직자", "total": 120, "semCredits": [16, 32, 46, 60, 75, 90, 105, 120, null, null, null, null], "source": "원예생명과학과 특성화고졸재직자", "note": ""}, {"label": "의과대학 의예과", "total": 82, "semCredits": [20.5, 41, 61.5, 82, null, null, null, null, null, null, null, null], "source": "의과대학 의예과", "note": ""}, {"label": "의과대학 의학과", "total": 181, "semCredits": [20, 40, 60, 80, 100, 120, 150.5, 181, null, null, null, null], "source": "의과대학 의학과", "note": ""}, {"label": "인문대학 전 학과", "total": 126, "semCredits": [16, 32, 48, 64, 80, 96, 111, 126, null, null, null, null], "source": "인문대학 전 학과, 사회과학대학 행정학과·정치외교학과·사회학과·심리학과·미디어커뮤니케이션학과, 생활과학대학 스포츠과학과, 경영대학 경영학과,글로벌자유전공학부", "note": "인문대학 소속 학과 공통 기준"}, {"label": "자연과학대학 전 학과", "total": 129, "semCredits": [16, 32, 48, 64, 80, 96, 112.5, 129, null, null, null, null], "source": "사회과학대학 사회복지학과·문헌정보학과, 자연과학대학 전 학과, 생활과학대학 스포츠과학과를 제외한 전 학과, 예술대학 전 학과, 생명자원과학대학 식품자원경제학과", "note": "자연과학대학 소속 학과 공통 기준"}, {"label": "정보의생명공학대학 전 학과(부)", "total": 133, "semCredits": [17, 34, 51, 68, 85, 102, 117.5, 133, null, null, null, null], "source": "정보의생명공학대학 전 학과(부)", "note": "정보의생명공학대학 소속 학과(부) 공통 기준"}, {"label": "치의학전문대학원 학·석사통합과정 중 학사과정", "total": 104, "semCredits": [17.5, 35, 52.5, 70, 87, 104, null, null, null, null, null, null], "source": "치의학전문대학원 및 한의학전문대학원 학·석사통합과정 중 학사과정", "note": ""}, {"label": "한의학전문대학원 학·석사통합과정 중 학사과정", "total": 104, "semCredits": [17.5, 35, 52.5, 70, 87, 104, null, null, null, null, null, null], "source": "치의학전문대학원 및 한의학전문대학원 학·석사통합과정 중 학사과정", "note": ""}];
+
+const GRAD_DEPARTMENTS = [
+  {
+    "category": "인문사회계열",
+    "name": "국어국문학과",
+    "location": "인문대 교수연구동 109호",
+    "phone": "051-510-1509",
+    "homepage": "https://bkorea.pusan.ac.kr/bkorea/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "일어일문학과",
+    "location": "인문대 교수연구동 109호",
+    "phone": "051-510-1509",
+    "homepage": "https://japan.pusan.ac.kr/japan/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "영어영문학과",
+    "location": "인문대 교수연구동 114호",
+    "phone": "051-510-1510",
+    "homepage": "https://pnuenglish.pusan.ac.kr/pnuenglish/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "한문학과",
+    "location": "인문대 교수연구동 213호",
+    "phone": "051-510-1516",
+    "homepage": "https://hanmun.pusan.ac.kr/hanmun/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "사학과",
+    "location": "인문대 교수연구동 216호",
+    "phone": "051-510-1513",
+    "homepage": "https://history.pusan.ac.kr/history/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "독어독문학과",
+    "location": "인문대 교수연구동 116호",
+    "phone": "051-510-1512",
+    "homepage": "https://german.pusan.ac.kr/german/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "노어노문학과",
+    "location": "인문대 교수연구동 117호",
+    "phone": "051-510-1671",
+    "homepage": "https://russia.pusan.ac.kr/russia/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "언어정보학과",
+    "location": "인문대 교수연구동 215호",
+    "phone": "051-510-1518",
+    "homepage": "https://linguistics.pusan.ac.kr/linguistics/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "불어불문학과",
+    "location": "인문대 교수연구동 115호",
+    "phone": "051-510-1511",
+    "homepage": "https://french.pusan.ac.kr/french/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "중어중문학과",
+    "location": "인문대 교수연구동 108호",
+    "phone": "051-510-1508",
+    "homepage": "https://china.pusan.ac.kr/china/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "고고학과",
+    "location": "인문대 교수연구동 218호",
+    "phone": "051-510-1517",
+    "homepage": "https://archaeology.pusan.ac.kr/archaeology/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "철학과",
+    "location": "인문대 교수연구동 217호",
+    "phone": "051-510-1514",
+    "homepage": "https://philosophy.pusan.ac.kr/philosophy/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "행정학과",
+    "location": "사회관 213호",
+    "phone": "051-510-1557",
+    "homepage": "https://pub-adm.pusan.ac.kr/pub-adm/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "정치외교학과",
+    "location": "사회관 124호",
+    "phone": "051-510-1558",
+    "homepage": "https://bkorea.pusan.ac.kr/bkorea/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "사회학과",
+    "location": "사회관 314호",
+    "phone": "051-510-1560",
+    "homepage": "https://soc.pusan.ac.kr/soc/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "심리학과",
+    "location": "사회관 416호",
+    "phone": "051-510-1561",
+    "homepage": "https://psy.pusan.ac.kr/psy/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "미디어커뮤니케이션학과",
+    "location": "사회관 117호",
+    "phone": "051-510-1563",
+    "homepage": "https://comm.pusan.ac.kr/comm/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "사회복지학과",
+    "location": "사회관 417호",
+    "phone": "051-510-1559",
+    "homepage": "https://swf.pusan.ac.kr/swf/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "문헌정보학과",
+    "location": "사회관 108호",
+    "phone": "051-510-1562",
+    "homepage": "https://lais.pusan.ac.kr/"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "국어교육학과",
+    "location": "제2사범관 306호",
+    "phone": "051-510-1611",
+    "homepage": "https://koredu.pusan.ac.kr/koredu/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "교육학과",
+    "location": "제2교수연구동 413호",
+    "phone": "051-510-1615",
+    "homepage": "https://ed.pusan.ac.kr/ed/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "유아교육학과",
+    "location": "보육종합센터 403호",
+    "phone": "051-510-1616",
+    "homepage": "https://child.pusan.ac.kr/child/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "특수교육학과",
+    "location": "성학관 408호",
+    "phone": "051-510-1643",
+    "homepage": "https://special.pusan.ac.kr/special/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "윤리교육학과",
+    "location": "제1사범관 404호",
+    "phone": "051-510-1620",
+    "homepage": "https://ethics.pusan.ac.kr/ethics/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "사회교육학과",
+    "location": "제2교수연구동 207-1호",
+    "phone": "051-510-1617",
+    "homepage": "https://socialedu.pusan.ac.kr/socialedu/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "무역학과",
+    "location": "경제통상관 410호",
+    "phone": "051-510-1657",
+    "homepage": "https://pnutrade.pusan.ac.kr/pnutrade/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "경제학과",
+    "location": "경제통상관 411호",
+    "phone": "051-510-1658",
+    "homepage": "https://pnuecon.pusan.ac.kr/pnuecon/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "공공정책학과",
+    "location": "경제통상관 403호",
+    "phone": "051-510-7668",
+    "homepage": "https://ppm.pusan.ac.kr/ppm/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "경영학과",
+    "location": "경영관 101-1호",
+    "phone": "051-510-7663~4, 1659, 1660, 1678, 1854",
+    "homepage": "https://biz.pusan.ac.kr/biz/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "아동가족학과",
+    "location": "생활환경관 205호",
+    "phone": "051-510-1658",
+    "homepage": "https://cdfs.pusan.ac.kr/cdfs/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "법학과",
+    "location": "법학관 110호",
+    "phone": "051-510-1580",
+    "homepage": "https://collegeoflaw.pusan.ac.kr/collegeoflaw/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "식품자원경제학과",
+    "location": "밀양캠퍼스 생명자원과학관 3248호",
+    "phone": "055-350-5570",
+    "homepage": "https://agecon.pusan.ac.kr/agecon/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "관광컨벤션학과",
+    "location": "경제통상관 412호",
+    "phone": "051-510-1855",
+    "homepage": "https://convention.pusan.ac.kr/convention/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "외국어교육학과_영어교육학전공",
+    "location": "제2사범관 110호",
+    "phone": "051-510-1612",
+    "homepage": "https://englishedu.pusan.ac.kr/"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "불어교육과",
+    "location": "제2사범관 212호",
+    "phone": "051-510-1613",
+    "homepage": "https://fredu.pusan.ac.kr/fredu/index.do"
+  },
+  {
+    "category": "인문사회계열",
+    "name": "독어교육과",
+    "location": "제2사범관 209호",
+    "phone": "051-510-1614",
+    "homepage": "https://geredu.pusan.ac.kr/geredu/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "수학과",
+    "location": "공동연구소동 413호",
+    "phone": "051-510-1767",
+    "homepage": "https://math.pusan.ac.kr/math/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "통계학과",
+    "location": "자연대연구실험동 111호",
+    "phone": "051-510-1768",
+    "homepage": "https://stat.pusan.ac.kr/stat/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "물리학과",
+    "location": "제1물리관 102호",
+    "phone": "051-510",
+    "homepage": "https://phys.pusan.ac.kr/"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "화학과",
+    "location": "화학관 118호",
+    "phone": "051-510-1770",
+    "homepage": "https://chem.pusan.ac.kr/chem/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "생명시스템학과",
+    "location": "생물관 215-B호",
+    "phone": "051-510-1772",
+    "homepage": "https://bk21-bio.pusan.ac.kr/"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "지구과학과",
+    "location": "지구관 315호",
+    "phone": "051-510-1626",
+    "homepage": "https://earth.pusan.ac.kr/earth/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "지구환경시스템학부_지질환경과학전공",
+    "location": "공동실험실습관 703호",
+    "phone": "051-510-1771",
+    "homepage": "https://geology.pusan.ac.kr/geology/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "지구환경시스템학부_해양학전공",
+    "location": "공동실험실습관 807호",
+    "phone": "051-510-1774",
+    "homepage": "https://ocean.pusan.ac.kr/ocean/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "지구환경시스템학부_대기과학전공",
+    "location": "자연대 연구실험동 508호",
+    "phone": "051-510-1791",
+    "homepage": "https://atmos.pusan.ac.kr/atmos/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "수학교육학과",
+    "location": "공동연구소동 412호",
+    "phone": "051-510-1622",
+    "homepage": "https://mathedu.pusan.ac.kr/mathedu/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "과학교육학과_물리교육학전공",
+    "location": "제1물리관 210호",
+    "phone": "051-510-1623",
+    "homepage": "https://physedu.pusan.ac.kr/physedu/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "과학교육학과_화학교육학전공",
+    "location": "화학관 322호",
+    "phone": "051-510-1624",
+    "homepage": "https://chemedu.pusan.ac.kr/chemedu/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "과학교육학과_생물교육학전공",
+    "location": "생물관 216-1호",
+    "phone": "051-510-1625",
+    "homepage": "https://edubio.pusan.ac.kr/edubio/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "약학과",
+    "location": "약학관 201호",
+    "phone": "051-510-1683~6",
+    "homepage": "https://pharmacy.pusan.ac.kr/pharmacy/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "제약학과",
+    "location": "약학관 201호",
+    "phone": "051-510-1683~6",
+    "homepage": "https://pharmacy.pusan.ac.kr/pharmacy/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "간호학과",
+    "location": "양산캠퍼스 간호대학 123호",
+    "phone": "051-510-8305~7",
+    "homepage": "https://nursing.pusan.ac.kr/nursing/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "실내환경디자인학과",
+    "location": "생활환경대 실험실습동 115호",
+    "phone": "051-510-1711",
+    "homepage": "https://che.pusan.ac.kr/che/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "의류학과",
+    "location": "생활환경관 305호",
+    "phone": "051-510-1719",
+    "homepage": "https://fashion.pusan.ac.kr/fashion/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "식품영양학과",
+    "location": "생활환경관 401호",
+    "phone": "051-510-1718",
+    "homepage": "https://fsn.pusan.ac.kr/fsn/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "식물생명과학과",
+    "location": "밀양캠퍼스 생명자원과학관 3630호",
+    "phone": "055-350-5500",
+    "homepage": "https://plant.pusan.ac.kr/plant/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "원예생명과학과",
+    "location": "밀양캠퍼스 생명자원과학관 3437호",
+    "phone": "055-350-5520",
+    "homepage": "http://horticulture.pusan.ac.kr/horticulture/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "동물생명자원과학과",
+    "location": "밀양캠퍼스 생명자원과학관 3333호",
+    "phone": "055-350-5510",
+    "homepage": "https://animal.pusan.ac.kr/animal/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "식품공학과",
+    "location": "밀양캠퍼스 생명자원과학관 3459호",
+    "phone": "055-350-5350",
+    "homepage": "https://fst.pusan.ac.kr/fst/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "생명환경화학과",
+    "location": "밀양캠퍼스 생명자원과학대학 3226호",
+    "phone": "055-350-5540",
+    "homepage": "https://pnu-lseb.pusan.ac.kr/pnu-lseb/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "바이오소재학과",
+    "location": "밀양캠퍼스 생명자원과학관 3362호",
+    "phone": "055-350-5380",
+    "homepage": "https://bm.pusan.ac.kr/bm/index.do"
+  },
+  {
+    "category": "자연과학계열",
+    "name": "화학소재학과",
+    "location": "화학관 606호",
+    "phone": "051-510-1624",
+    "homepage": "https://amide.pusan.ac.kr/amide/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "기계공학부",
+    "location": "기계관 406호",
+    "phone": "051-510-1420",
+    "homepage": "https://me.pusan.ac.kr/new/main/index.asp"
+  },
+  {
+    "category": "공학계열",
+    "name": "건축공학과",
+    "location": "건설관 825호",
+    "phone": "051-510-1426",
+    "homepage": "https://archieng.pusan.ac.kr/_archieng/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "건축학과",
+    "location": "건설관 925호",
+    "phone": "051-510-1487",
+    "homepage": "https://archi.pusan.ac.kr/archi/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "산업공학과",
+    "location": "제10공학관(특성화공학관) 604호",
+    "phone": "051-510-1435",
+    "homepage": "https://ie.pusan.ac.kr/ie/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "항공우주공학과",
+    "location": "제9공학관(기전관) 9312호",
+    "phone": "051-510-1545",
+    "homepage": "https://aerospace.pusan.ac.kr/aerospace/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "조선해양공학과",
+    "location": "제11공학관(조선해양관) 5층 510호",
+    "phone": "051-510-1424",
+    "homepage": "https://naoe.pusan.ac.kr/naoe/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "재료공학과",
+    "location": "제2공학관(재료관) 204호",
+    "phone": "051-510-1429",
+    "homepage": "https://mse.pusan.ac.kr/mse/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "도시공학과",
+    "location": "건설관 719호",
+    "phone": "051-510-1546",
+    "homepage": "https://urban.pusan.ac.kr/urban/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "조경학과",
+    "location": "생명자원과학대학 3531호",
+    "phone": "055-350-5400",
+    "homepage": "https://la.pusan.ac.kr/la/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "나노융합기술학과",
+    "location": "공동연구소동 514호",
+    "phone": "051-510-1992",
+    "homepage": "https://bk21-nano.pusan.ac.kr/bk21_nano/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "나노메카트로닉스공학과",
+    "location": "공동연구소동 514호",
+    "phone": "051-510-1992",
+    "homepage": "https://nanomecha.pusan.ac.kr/nanomecha/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "IT응용공학과",
+    "location": "밀양캠퍼스 생명자원과학관 3554호",
+    "phone": "055-350-5410",
+    "homepage": "https://ite.pusan.ac.kr/ite/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "바이오환경에너지학과",
+    "location": "밀양캠퍼스 생명자원과학관 3139호",
+    "phone": "055-350-5430",
+    "homepage": "https://his.pusan.ac.kr/sites/bee/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "인지메카트로닉스공학과",
+    "location": "공동연구소동 509호",
+    "phone": "051-510-2795",
+    "homepage": "https://globalcogno.pusan.ac.kr/globalcogno/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "바이오산업기계공학과",
+    "location": "생명자원과학대학 바이오산업기계공학과",
+    "phone": "055-350-5420",
+    "homepage": "https://bime.pusan.ac.kr/bime/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "사회환경시스템공학과(토목공학전공)",
+    "location": "건설관 401호",
+    "phone": "051-510-1425",
+    "homepage": "https://civil.pusan.ac.kr/civil/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "사회환경시스템공학과(환경공학전공)",
+    "location": "제2공학관(재료관) 2214호",
+    "phone": "051-510-1434",
+    "homepage": "https://pnuenv.pusan.ac.kr/pnuenv/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "응용화학공학부",
+    "location": "제7공학관 7402호, 7405호",
+    "phone": "051-510-1431~3",
+    "homepage": "https://polymer.pusan.ac.kr/polymer/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "전기전자공학과(전기공학전공)",
+    "location": "제10공학관(특성화공학관) 326호",
+    "phone": "051-510-1427",
+    "homepage": "https://eec.pusan.ac.kr/eehome/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "전기전자공학과(전자공학전공)",
+    "location": "제9공학관(기전관) 512호",
+    "phone": "051-510-7403",
+    "homepage": "https://ee.pusan.ac.kr/ee/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "융합학부",
+    "location": "효원산학협동관 502호",
+    "phone": "051-510-2990",
+    "homepage": "https://gscs.pusan.ac.kr/gscs/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "정보융합공학과(의생명융합전공)",
+    "location": "첨단의생명융합센터(ABC센터) 401호",
+    "phone": "051-510-8543~4",
+    "homepage": "https://bce.pusan.ac.kr/bce/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "정보융합공학과(AI전공)",
+    "location": "제6공학관 인공지능융합연구센터",
+    "phone": "051-510-3356",
+    "homepage": "https://ai.pusan.ac.kr/ai/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "정보융합공학과(컴퓨터공학전공)",
+    "location": "제6공학관 6410호",
+    "phone": "051-510-1436",
+    "homepage": "https://cse.pusan.ac.kr/cse/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "탄소중립기후변화학과(수소미래에너지융합전공)",
+    "location": "기계기술연구동 112호",
+    "phone": "051-510-3778",
+    "homepage": "https://hn.pusan.ac.kr"
+  },
+  {
+    "category": "공학계열",
+    "name": "탄소중립기후변화학과(통합기후시스템과학전공)",
+    "location": "통합기계관 1006호",
+    "phone": "051-510-7859",
+    "homepage": "https://dicss.pusan.ac.kr/climate/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "반도체공학과",
+    "location": "제9공학관 215-B호",
+    "phone": "051-510-1445",
+    "homepage": "https://semi.pusan.ac.kr/semi/index.do"
+  },
+  {
+    "category": "공학계열",
+    "name": "디자인테크놀로지학과",
+    "location": "조형관 516호",
+    "phone": "051-510-8540",
+    "homepage": ""
+  },
+  {
+    "category": "공학계열",
+    "name": "후각디스플레이공학과",
+    "location": "효원문화회관 709호",
+    "phone": "051-510-7259",
+    "homepage": ""
+  },
+  {
+    "category": "의학계열",
+    "name": "의학과",
+    "location": "부산대학교 의과대학",
+    "phone": "051-510-8004~6 / 8255 / 8007",
+    "homepage": "https://medicine.pusan.ac.kr/medicine/index.do"
+  },
+  {
+    "category": "의학계열",
+    "name": "치의학과",
+    "location": "부산대학교 치의학전문대학원",
+    "phone": "051-510-8206~9",
+    "homepage": "https://dent.pusan.ac.kr/newdent/index.do"
+  },
+  {
+    "category": "의학계열",
+    "name": "한의학과",
+    "location": "부산대학교 한의학전문대학원",
+    "phone": "051-510-8403~5",
+    "homepage": "https://kmed.pusan.ac.kr/kmed/index.do"
+  },
+  {
+    "category": "의학계열",
+    "name": "융합의과학과",
+    "location": "학과 확인 필요",
+    "phone": "학과 확인 필요",
+    "homepage": ""
+  },
+  {
+    "category": "의학계열",
+    "name": "융합한의과학과",
+    "location": "양산캠퍼스 한의학전문대학원",
+    "phone": "051-510-8420",
+    "homepage": "https://kmed.pusan.ac.kr/kmed/index.do"
+  },
+  {
+    "category": "예술계열",
+    "name": "음악학과",
+    "location": "음악관",
+    "phone": "051-510-1737",
+    "homepage": "https://music.pusan.ac.kr/music/index.do"
+  },
+  {
+    "category": "예술계열",
+    "name": "한국음악학과",
+    "location": "예술관 420호",
+    "phone": "051-510-1739",
+    "homepage": "https://gukak.pusan.ac.kr/gukak/index.do"
+  },
+  {
+    "category": "예술계열",
+    "name": "미술학과",
+    "location": "미술관",
+    "phone": "051-510-1738",
+    "homepage": "https://pnuart.pusan.ac.kr/pnuart/index.do"
+  },
+  {
+    "category": "예술계열",
+    "name": "디자인학과",
+    "location": "예술관",
+    "phone": "051-510-1736",
+    "homepage": "https://design.pusan.ac.kr/design/index.do"
+  },
+  {
+    "category": "예술계열",
+    "name": "무용학과",
+    "location": "학과 확인 필요",
+    "phone": "051-510-1740",
+    "homepage": "https://dance.pusan.ac.kr/dance/index.do"
+  },
+  {
+    "category": "예술계열",
+    "name": "조형학과",
+    "location": "미술관 210호",
+    "phone": "051-510-7420",
+    "homepage": "https://plarts.pusan.ac.kr/plarts/index.do"
+  },
+  {
+    "category": "예술계열",
+    "name": "예술문화영상학과",
+    "location": "예술관",
+    "phone": "051-510-3755",
+    "homepage": "https://artimage.pusan.ac.kr/artimage/index.do"
+  },
+  {
+    "category": "체육계열",
+    "name": "체육학과",
+    "location": "경암체육관",
+    "phone": "051-510-1627",
+    "homepage": "https://physicaledu.pusan.ac.kr/physicaledu/index.do"
+  },
+  {
+    "category": "체육계열",
+    "name": "스포츠과학과",
+    "location": "경암체육관 연구동 204호",
+    "phone": "051-510-3745",
+    "homepage": "https://sportscience.pusan.ac.kr/sportscience/index.do"
+  },
+  {
+    "category": "협동과정",
+    "name": "외국어로서의 한국어 교육전공(학과간)",
+    "location": "인문대 교수연구동 418호",
+    "phone": "051-510-2010",
+    "homepage": "https://edukorean.pusan.ac.kr/edukorean/index.do"
+  },
+  {
+    "category": "협동과정",
+    "name": "여성학전공(학과간)",
+    "location": "제1법학관 110호",
+    "phone": "051-510-1580",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "국제교육개발협력전공(학과간)",
+    "location": "제2교수연구동 405-2호",
+    "phone": "051-510-1695",
+    "homepage": "https://edc.pusan.ac.kr/edc/index.do"
+  },
+  {
+    "category": "협동과정",
+    "name": "인지과학전공(학과간)",
+    "location": "인문대학 214호",
+    "phone": "051-510-1518",
+    "homepage": "https://cosi.pusan.ac.kr/cosi/index.do"
+  },
+  {
+    "category": "협동과정",
+    "name": "기후시스템전공(학과간)",
+    "location": "자연과학대학",
+    "phone": "051-510-7859",
+    "homepage": "http://climatesystem.pusan.ac.kr/climate/index.do"
+  },
+  {
+    "category": "협동과정",
+    "name": "교육과미디어융합전공(학과간)",
+    "location": "제2교수연구동 404호",
+    "phone": "051-510-2636",
+    "homepage": "https://edumedia.pusan.ac.kr"
+  },
+  {
+    "category": "협동과정",
+    "name": "로봇융합전공(학과간)",
+    "location": "정보화교육관 202호",
+    "phone": "051-510-3889",
+    "homepage": "https://robot.pusan.ac.kr/robot/index.do"
+  },
+  {
+    "category": "협동과정",
+    "name": "의공학전공(학과간)",
+    "location": "의과대학",
+    "phone": "051-510-8153",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "유전체데이터과학전공(학과간)",
+    "location": "생명 관련 부서 확인 필요",
+    "phone": "051-510-8153",
+    "homepage": "http://genomicdata.pusan.ac.kr/genomicdata/index.do"
+  },
+  {
+    "category": "협동과정",
+    "name": "통합예술치료학과(학과간)",
+    "location": "학과 확인 필요",
+    "phone": "051-510-8402",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "예술·문화와영상매체협동과정(학과간)",
+    "location": "예술관",
+    "phone": "051-510-3755",
+    "homepage": "https://artimage.pusan.ac.kr/artimage/index.do"
+  },
+  {
+    "category": "협동과정",
+    "name": "글로벌교원교육전공(학과간)",
+    "location": "학과 확인 필요",
+    "phone": "051-510-3781",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "국제차산업문화전공(학과간)",
+    "location": "생명자원과학대학",
+    "phone": "051-510-5430",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "지식재산융합전공(학과간)",
+    "location": "공과대학",
+    "phone": "051-510-7267",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국기계연구원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1429",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국소재융합연구원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1431",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국생산기술연구원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1429",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국로봇융합연구원(학연)",
+    "location": "정보화교육관 202호",
+    "phone": "051-510-3889",
+    "homepage": "https://robot.pusan.ac.kr/robot/index.do"
+  },
+  {
+    "category": "협동과정",
+    "name": "한국산업기술시험원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1429",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국세라믹기술원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1429",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국전기연구원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1429",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국에너지기술연구원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1431",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국염색기술연구원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1433",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국화학연구원(학연)",
+    "location": "자연과학대학",
+    "phone": "051-510-3094",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국해양과학기술연구원(학연)",
+    "location": "자연과학대학",
+    "phone": "051-510-3094",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국해양수산개발원(학연)",
+    "location": "국제전문대학원",
+    "phone": "051-510-1663",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "에너지경제연구원(학연)",
+    "location": "경제통상대학",
+    "phone": "051-510-1658",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "농촌진흥청(학연)",
+    "location": "생명자원과학대학",
+    "phone": "051-510-5420",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국재료연구원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1429",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국전자통신연구원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1428",
+    "homepage": ""
+  },
+  {
+    "category": "협동과정",
+    "name": "한국원자력연구원(학연)",
+    "location": "공과대학",
+    "phone": "051-510-1425",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "스마트가전공학과",
+    "location": "호",
+    "phone": "051-510-",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "발전공학과",
+    "location": "제10공학관 109호",
+    "phone": "051-510-1346",
+    "homepage": "http://meindustry.org/page/main/"
+  },
+  {
+    "category": "계약학과",
+    "name": "부동산학전공",
+    "location": "경영관 B동 219호",
+    "phone": "051-510-1844",
+    "homepage": "https://more.pusan.ac.kr"
+  },
+  {
+    "category": "계약학과",
+    "name": "경영컨설팅학과",
+    "location": "경영관 B동 219호",
+    "phone": "051-510-1850",
+    "homepage": "https://pnumc.pusan.ac.kr"
+  },
+  {
+    "category": "계약학과",
+    "name": "디지털융합전략전공",
+    "location": "경영관 B동 218호",
+    "phone": "051-510-3394",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "글로벌경제컨설팅전공",
+    "location": "경제통상관 908-1호",
+    "phone": "051-510-3327",
+    "homepage": "https://pnuglobal.pusan.ac.kr"
+  },
+  {
+    "category": "계약학과",
+    "name": "스마트가전공조시스템학과",
+    "location": "기계기술연구동 212호",
+    "phone": "051-510-7853",
+    "homepage": "https://care.pusan.ac.kr"
+  },
+  {
+    "category": "계약학과",
+    "name": "에너지융합발전연소전공",
+    "location": "기계관 707호",
+    "phone": "051-510-3466",
+    "homepage": "http://meindustry.org/page/main/"
+  },
+  {
+    "category": "계약학과",
+    "name": "기계부품시스템전공",
+    "location": "기계기술연구동 212호",
+    "phone": "051-510-1451",
+    "homepage": "https://rimtgrad.pusan.ac.kr"
+  },
+  {
+    "category": "계약학과",
+    "name": "원자력공학전공",
+    "location": "기계관 707호",
+    "phone": "051-510-3466",
+    "homepage": "http://meindustry.org/page/main/"
+  },
+  {
+    "category": "계약학과",
+    "name": "ICT융합학과",
+    "location": "제6공학관 520호",
+    "phone": "051-510-7223",
+    "homepage": "https://smartfactory.pusan.ac.kr"
+  },
+  {
+    "category": "계약학과",
+    "name": "나노반도체 공정·장비 계약학과",
+    "location": "삼성산학협동관 206호",
+    "phone": "051-510-7085",
+    "homepage": "https://u-spec.pusan.ac.kr/u-spec/index.do"
+  },
+  {
+    "category": "계약학과",
+    "name": "푸드테크학과",
+    "location": "밀양캠퍼스 생명자원과학관 3460호",
+    "phone": "055-350-5351",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "Techno-MBA전공",
+    "location": "경영관 B동 208호",
+    "phone": "051-510-3582",
+    "homepage": "https://technomba.pusan.ac.kr"
+  },
+  {
+    "category": "계약학과",
+    "name": "AI융합교육전공",
+    "location": "정보화교육관 304호",
+    "phone": "051-510-1892",
+    "homepage": "https://gsedu.pusan.ac.kr"
+  },
+  {
+    "category": "계약학과",
+    "name": "공공감사전공",
+    "location": "경제통상관 908-2호",
+    "phone": "051-510-7668",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "디지털MBA전공",
+    "location": "경영관 B동 216-2호",
+    "phone": "051-510-3899",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "산업데이터사이언스융합학과",
+    "location": "제12공학관 303호",
+    "phone": "051-510-7187",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "나노반도체 첨단제조공정 융합교육 사업단",
+    "location": "학과 확인 필요",
+    "phone": "051-510-7085",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "전기전자공학과(석)",
+    "location": "학과 확인 필요",
+    "phone": "051-510-3530",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "응용화학공학부(석)",
+    "location": "학과 확인 필요",
+    "phone": "051-510-1433",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "나노융합기술학과(석)",
+    "location": "학과 확인 필요",
+    "phone": "051-510-2796",
+    "homepage": ""
+  },
+  {
+    "category": "계약학과",
+    "name": "인지메카트로닉스공학과(석)",
+    "location": "학과 확인 필요",
+    "phone": "051-510-2795",
+    "homepage": ""
+  }
+];
+
 const currentRule = { minGpa: 3.0, minSemester: 4, maxSemester: 7 };
 const proposedRule = { enabled: false, note: '개정 추진 중 규정(안)의 세부 기준을 입력하면 자동 판정으로 전환할 수 있습니다.' };
 const deptSelect = document.getElementById('deptSelect');
@@ -247,5 +1372,50 @@ document.getElementById('checkButton').addEventListener('click', () => {
     renderResult('maybe','현재 입력값으로는 바로 지원 가능 여부 확인이 필요합니다.', lines.concat(['개정 추진 중 규정(안)의 적용 가능성 또는 다음 모집 대비 보완 계획을 학과·담당부서와 상담하세요.']));
   }
 });
+
+const graduateDeptGrid = document.getElementById('graduateDeptGrid');
+const graduateDeptTabs = document.getElementById('graduateDeptTabs');
+const graduateDeptSearch = document.getElementById('graduateDeptSearch');
+let activeGradCategory = '전체';
+const gradCategories = ['전체', ...Array.from(new Set(GRAD_DEPARTMENTS.map(d => d.category)))];
+function makePhoneHref(phone){
+  const first = (phone || '').split(/[~,\/]/)[0].replace(/[^0-9]/g,'');
+  return first ? `tel:${first}` : '#contact';
+}
+function renderGradTabs(){
+  graduateDeptTabs.innerHTML = gradCategories.map(cat => `<button type="button" class="dept-tab ${cat===activeGradCategory?'active':''}" data-cat="${cat}">${cat}</button>`).join('');
+  graduateDeptTabs.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{
+    activeGradCategory = btn.dataset.cat;
+    renderGradTabs();
+    renderGradDepartments();
+  }));
+}
+function renderGradDepartments(){
+  const keyword = (graduateDeptSearch.value || '').trim().toLowerCase();
+  const filtered = GRAD_DEPARTMENTS.filter(d => {
+    const inCategory = activeGradCategory === '전체' || d.category === activeGradCategory;
+    const text = `${d.category} ${d.name} ${d.location} ${d.phone}`.toLowerCase();
+    return inCategory && (!keyword || text.includes(keyword));
+  });
+  graduateDeptGrid.innerHTML = filtered.map(d => `
+    <article class="graduate-dept-card">
+      <div class="graduate-dept-head">
+        <span class="graduate-dept-tag">${d.category}</span>
+        <h3>${d.name}</h3>
+      </div>
+      <p class="dept-meta"><span class="dept-icon">📍</span><b>위치</b><em>${d.location || '학과 확인 필요'}</em></p>
+      <p class="dept-meta"><span class="dept-icon">☎</span><b>전화</b><em>${d.phone || '학과 확인 필요'}</em></p>
+      <div class="graduate-dept-actions">
+        <a class="mini-btn" href="${makePhoneHref(d.phone)}" aria-label="${d.name} 전화 연결">전화 문의</a>
+        ${d.homepage ? `<a class="mini-btn primary" href="${d.homepage}" target="_blank" rel="noopener" aria-label="${d.name} 홈페이지 새 창 열기">🌐 홈페이지</a>` : `<span class="mini-btn disabled">🌐 홈페이지 확인 필요</span>`}
+      </div>
+    </article>`).join('') || '<p class="empty-message">검색 결과가 없습니다. 다른 키워드로 검색해 주세요.</p>';
+}
+if (graduateDeptGrid && graduateDeptTabs && graduateDeptSearch) {
+  renderGradTabs();
+  renderGradDepartments();
+  graduateDeptSearch.addEventListener('input', renderGradDepartments);
+}
+
 </script>
 </body></html>
