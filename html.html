@@ -1,139 +1,134 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>국어국문학과 교육과정 탐색관 v4</title>
+<title>국어국문학과 전공설계 시안</title>
 <style>
 body{font-family:Arial,sans-serif;margin:0;background:#f5f7fb}
-header{background:#005bac;color:#fff;padding:40px}
-.tabs{display:flex;gap:10px;padding:15px;background:#fff}
-.tab{padding:10px 18px;border-radius:20px;background:#e9f2ff;cursor:pointer}
-.active{background:#005bac;color:#fff}
-.section{padding:20px}
-.hidden{display:none}
-.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.card,.course{background:#fff;padding:12px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
-.roadmap{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:20px}
-.sem h3{text-align:center}
-.course{margin:6px 0;cursor:pointer}
-.basic{border-left:6px solid #22c55e}
-.required{border-left:6px solid #2563eb}
-.elective{border-left:6px solid #9ca3af}
-input{padding:10px;width:300px}
-table{width:100%;border-collapse:collapse;background:#fff}
-th,td{border:1px solid #ddd;padding:8px}
-th{background:#005bac;color:#fff}
-#modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none}
-#modalBox{background:#fff;max-width:700px;margin:5% auto;padding:20px;border-radius:12px}
+header{background:#005BAC;color:white;padding:40px}
+.container{padding:30px}
+h2{color:#005BAC}
+.roadmap{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
+.sem{background:white;border-radius:12px;padding:10px;min-height:220px;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+.sem h3{text-align:center;margin:5px}
+.course{padding:8px;border-radius:8px;margin:5px 0;background:#eef4ff}
+.filter-area{margin-top:30px;background:white;padding:20px;border-radius:12px}
+.filter-btn{
+display:inline-block;
+padding:12px 18px;
+margin:5px;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+}
+.all{background:#666;color:white}
+.a{background:#2563eb;color:white}
+.b{background:#10b981;color:white}
+.c{background:#f59e0b;color:white}
+.d{background:#8b5cf6;color:white}
+.e{background:#ef4444;color:white}
+.note{margin-top:15px;color:#555}
 </style>
 </head>
 <body>
+
 <header>
-<h1>국어국문학과 교육과정 탐색관 v4</h1>
-<p>교육과정 · 펜토미노 · 교과요목 통합 시안</p>
+<h1>국어국문학과 전공설계 플랫폼 (시안)</h1>
+<p>교육과정 + 펜토미노 모듈 연계 예시</p>
 </header>
 
-<div class="tabs">
-<div class="tab active" onclick="showTab('cur',this)">교육과정</div>
-<div class="tab" onclick="showTab('pen',this)">펜토미노</div>
-</div>
+<div class="container">
 
-<div id="cur" class="section">
-<h2>졸업요건</h2>
-<div class="stats">
-<div class="card">전공기초<br><b>12</b></div>
-<div class="card">전공필수<br><b>18</b></div>
-<div class="card">심화전공<br><b>21</b></div>
-<div class="card">일반선택<br><b>27</b></div>
-<div class="card">졸업학점<br><b>126</b></div>
-</div>
-<br>
-<input id="search" placeholder="교과목 검색..." onkeyup="filterCourses()">
+<h2>교육과정 로드맵</h2>
 
 <div class="roadmap">
+
 <div class="sem"><h3>1-1</h3>
-<div class="course basic" data-name="국어국문학의기초" onclick="openCourse('국어국문학의기초')">국어국문학의기초</div>
-<div class="course basic" onclick="openCourse('문학의이해')">문학의이해</div>
+<div class="course">국어국문학의기초</div>
+<div class="course">문학의이해</div>
 </div>
+
 <div class="sem"><h3>1-2</h3>
-<div class="course basic" onclick="openCourse('고전문학입문')">고전문학입문</div>
-<div class="course basic" onclick="openCourse('국어학입문')">국어학입문</div>
+<div class="course">고전문학입문</div>
+<div class="course">국어학입문</div>
 </div>
+
 <div class="sem"><h3>2-1</h3>
-<div class="course required" onclick="openCourse('고전문학자료와해석')">고전문학자료와해석</div>
-<div class="course elective" onclick="openCourse('현대소설론')">현대소설론</div>
+<div class="course module-c">고전문학자료와해석</div>
+<div class="course module-d">국어단어의이해</div>
+<div class="course module-e">현대소설론</div>
 </div>
+
 <div class="sem"><h3>2-2</h3>
-<div class="course required" onclick="openCourse('국어문법')">국어문법</div>
-<div class="course elective" onclick="openCourse('영상문학의이해')">영상문학의이해</div>
+<div class="course module-a">영상문학의이해</div>
+<div class="course module-c">고전소설론</div>
+<div class="course module-d">국어문법</div>
 </div>
+
 <div class="sem"><h3>3-1</h3>
-<div class="course required" onclick="openCourse('문예비평')">문예비평</div>
-<div class="course required" onclick="openCourse('국어사')">국어사</div>
+<div class="course module-a">문학주제론</div>
+<div class="course module-d">국어사</div>
+<div class="course module-e">문예비평</div>
 </div>
+
 <div class="sem"><h3>3-2</h3>
-<div class="course required" onclick="openCourse('국문학사')">국문학사</div>
-<div class="course required" onclick="openCourse('한국현대문학사')">한국현대문학사</div>
+<div class="course module-b">시조와가사</div>
+<div class="course module-e">현대시론</div>
+<div class="course module-c">국문학사</div>
 </div>
+
 <div class="sem"><h3>4-1</h3>
-<div class="course elective" onclick="openCourse('국어의의미')">국어의의미</div>
-<div class="course elective" onclick="openCourse('고전작가의삶과문학')">고전작가의삶과문학</div>
+<div class="course module-b">국어맞춤법</div>
+<div class="course module-c">고전작가의삶과문학</div>
 </div>
+
 <div class="sem"><h3>4-2</h3>
-<div class="course elective" onclick="openCourse('고전문학특강')">고전문학특강</div>
-<div class="course elective" onclick="openCourse('현대문학 특강')">현대문학 특강</div>
-</div>
-</div>
+<div class="course">현대문학특강</div>
 </div>
 
-<div id="pen" class="section hidden">
-<h2>펜토미노 모듈 구성</h2>
-<table>
-<tr><th>모듈</th><th>대표 교과목</th></tr>
-<tr><td>한국문화기획</td><td>영상문학의이해, 현대문화와웹문학, 문학주제론</td></tr>
-<tr><td>트랜스로컬 한국학</td><td>시조와가사, 동아시아의문학과문화, 외국어로서의한국어</td></tr>
-<tr><td>한국고전문학</td><td>고전문학자료와해석, 고전소설론, 향가와고려가요</td></tr>
-<tr><td>한국어언어학</td><td>국어문법, 국어단어의이해, 국어와방언</td></tr>
-<tr><td>한국현대문학</td><td>현대소설론, 현대시론, 문예비평</td></tr>
-</table>
-<br>
-<h2>트랙</h2>
-<div class="card"><b>한국문화기획 트랙</b> : 한국문화기획 모듈 필수 + 선택 모듈</div><br>
-<div class="card"><b>트랜스로컬 한국학 트랙</b> : 트랜스로컬 한국학 모듈 필수 + 선택 모듈</div>
 </div>
 
-<div id="modal">
-<div id="modalBox">
-<h2 id="mTitle"></h2>
-<p id="mBody"></p>
-<button onclick="closeModal()">닫기</button>
+<div class="filter-area">
+
+<h2>펜토미노 모듈 필터 (시안 핵심)</h2>
+
+<div class="filter-btn all" onclick="filterModule('all')">전체 보기</div>
+<div class="filter-btn a" onclick="filterModule('a')">한국문화기획</div>
+<div class="filter-btn b" onclick="filterModule('b')">트랜스로컬 한국학</div>
+<div class="filter-btn c" onclick="filterModule('c')">한국고전문학</div>
+<div class="filter-btn d" onclick="filterModule('d')">한국어언어학</div>
+<div class="filter-btn e" onclick="filterModule('e')">한국현대문학</div>
+
+<p class="note">
+예시: '한국어언어학'을 클릭하면 국어단어의이해, 국어문법, 국어사 등 해당 모듈에 속한 교과목만 남도록 구현
+</p>
+
 </div>
+
 </div>
 
 <script>
-const courses={
-"국어국문학의기초":"국어국문학의 공통적이고 기초적인 내용을 다루어 일관된 체계를 갖추도록 한다.",
-"문학의이해":"문학의 개념을 이해하고 작품 감상과 분석 능력을 기른다.",
-"고전문학입문":"고전문학의 장르와 특징을 이해한다.",
-"국어학입문":"국어의 음운, 형태, 문법, 어휘 등을 학습한다.",
-"고전문학자료와해석":"고전문학 자료 분석과 해석 능력을 기른다.",
-"국어문법":"문법 범주의 기능과 관계를 이해한다.",
-"문예비평":"문학 비평의 방법론과 실제를 학습한다.",
-"국어사":"국어의 역사적 변천을 이해한다.",
-"현대소설론":"현대소설 이론과 작품 분석 능력을 기른다.",
-"영상문학의이해":"영상예술과 문학의 관계를 탐구한다.",
-"국문학사":"한국문학사의 흐름을 이해한다.",
-"한국현대문학사":"현대문학의 전개 과정을 이해한다.",
-"국어의의미":"국어 의미론의 특질을 이해한다.",
-"고전작가의삶과문학":"대표 고전작가의 삶과 문학을 탐구한다.",
-"고전문학특강":"새로운 관점에서 고전작품을 해석한다.",
-"현대문학 특강":"현대문학의 주요 동향을 탐구한다."
-};
-function openCourse(n){document.getElementById('mTitle').innerText=n;document.getElementById('mBody').innerText=courses[n]||'';document.getElementById('modal').style.display='block';}
-function closeModal(){document.getElementById('modal').style.display='none';}
-function showTab(id,el){document.getElementById('cur').classList.add('hidden');document.getElementById('pen').classList.add('hidden');document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');}
-function filterCourses(){let q=document.getElementById('search').value;document.querySelectorAll('.course').forEach(c=>{c.style.display=c.innerText.includes(q)?'block':'none';});}
+function filterModule(module){
+const courses=document.querySelectorAll('.course');
+
+courses.forEach(c=>{
+if(module==='all'){
+c.style.opacity='1';
+return;
+}
+
+if(c.classList.contains('module-'+module)){
+c.style.opacity='1';
+c.style.transform='scale(1.03)';
+}
+else if(c.className.includes('module-')){
+c.style.opacity='0.15';
+c.style.transform='scale(1)';
+}
+});
+}
 </script>
+
 </body>
 </html>
