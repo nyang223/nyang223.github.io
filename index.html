@@ -2,189 +2,133 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>국어국문학과 교육과정 탐색관 v3</title>
+<meta charset="UTF-8">
+<title>국어국문학과 전공설계 시안</title>
 <style>
-body{margin:0;font-family:'Pretendard',Arial,sans-serif;background:#f4f6f9;color:#222}
-.hero{background:linear-gradient(135deg,#005bac,#1b8ef2);color:#fff;padding:50px}
-.hero h1{margin:0;font-size:52px}
-.hero p{font-size:18px}
-.tabs{display:flex;gap:12px;padding:20px 50px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.tab{padding:12px 24px;border-radius:30px;background:#eaf3ff;cursor:pointer;font-weight:700}
-.tab.active{background:#005bac;color:#fff}
-.panel{display:none;padding:40px 50px}
-.panel.active{display:block}
-.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:30px}
-.stat{background:#fff;padding:20px;border-radius:15px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+body{font-family:Arial,sans-serif;margin:0;background:#f5f7fb}
+header{background:#005BAC;color:white;padding:40px}
+.container{padding:30px}
+h2{color:#005BAC}
 .roadmap{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
-.sem{background:#fff;border-radius:15px;padding:12px;min-height:260px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.sem h3{text-align:center;color:#005bac}
-.course{padding:8px;border-radius:8px;margin:6px 0;font-size:13px}
-.basic{background:#e8fff0}
-.required{background:#eaf3ff}
-.elective{background:#f1f1f1}
-
-.module{background:#fff;border-radius:18px;padding:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.module h3{color:#005bac}
-table{width:100%;border-collapse:collapse}
-th,td{border:1px solid #ddd;padding:8px;font-size:14px}
-th{background:#005bac;color:#fff}
-
-.trackbox{background:#fff;border-radius:18px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.trackA{border-left:8px solid #005bac}
-.trackB{border-left:8px solid #00a0e9}
-
-.pento-roadmap{overflow:auto;background:#fff;padding:20px;border-radius:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.pento-roadmap table td{text-align:center;height:60px}
+.sem{background:white;border-radius:12px;padding:10px;min-height:220px;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+.sem h3{text-align:center;margin:5px}
+.course{padding:8px;border-radius:8px;margin:5px 0;background:#eef4ff}
+.filter-area{margin-top:30px;background:white;padding:20px;border-radius:12px}
+.filter-btn{
+display:inline-block;
+padding:12px 18px;
+margin:5px;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+}
+.all{background:#666;color:white}
+.a{background:#2563eb;color:white}
+.b{background:#10b981;color:white}
+.c{background:#f59e0b;color:white}
+.d{background:#8b5cf6;color:white}
+.e{background:#ef4444;color:white}
+.note{margin-top:15px;color:#555}
 </style>
 </head>
 <body>
 
-<div class="hero">
-<h1>국어국문학과</h1>
-<p>교육과정 · 펜토미노 교육과정 통합 탐색관 (보고용 시안)</p>
-</div>
+<header>
+<h1>국어국문학과 전공설계 플랫폼 (시안)</h1>
+<p>교육과정 + 펜토미노 모듈 연계 예시</p>
+</header>
 
-<div class="tabs">
-<div class="tab active" onclick="showTab('curriculum',this)">📚 교육과정</div>
-<div class="tab" onclick="showTab('pentomino',this)">🧩 펜토미노 교육과정</div>
-</div>
-
-<div id="curriculum" class="panel active">
-<h2>졸업요건 한눈에 보기</h2>
-<div class="summary">
-<div class="stat"><b>전공기초</b><br>12학점</div>
-<div class="stat"><b>전공필수</b><br>18학점</div>
-<div class="stat"><b>전공선택</b><br>27학점+</div>
-<div class="stat"><b>교양</b><br>30학점</div>
-<div class="stat"><b>졸업학점</b><br>126학점</div>
-</div>
+<div class="container">
 
 <h2>교육과정 로드맵</h2>
+
 <div class="roadmap">
+
 <div class="sem"><h3>1-1</h3>
-<div class="course basic">국어국문학의기초</div>
-<div class="course basic">문학의이해</div>
+<div class="course">국어국문학의기초</div>
+<div class="course">문학의이해</div>
 </div>
 
 <div class="sem"><h3>1-2</h3>
-<div class="course basic">고전문학입문</div>
-<div class="course basic">국어학입문</div>
+<div class="course">고전문학입문</div>
+<div class="course">국어학입문</div>
 </div>
 
 <div class="sem"><h3>2-1</h3>
-<div class="course required">고전문학자료와해석</div>
-<div class="course elective">현대소설론</div>
-<div class="course elective">국어단어의이해</div>
+<div class="course module-c">고전문학자료와해석</div>
+<div class="course module-d">국어단어의이해</div>
+<div class="course module-e">현대소설론</div>
 </div>
 
 <div class="sem"><h3>2-2</h3>
-<div class="course required">국어문법</div>
-<div class="course elective">고전소설론</div>
-<div class="course elective">영상문학의이해</div>
+<div class="course module-a">영상문학의이해</div>
+<div class="course module-c">고전소설론</div>
+<div class="course module-d">국어문법</div>
 </div>
 
 <div class="sem"><h3>3-1</h3>
-<div class="course required">문예비평</div>
-<div class="course required">국어사</div>
-<div class="course elective">문학주제론</div>
+<div class="course module-a">문학주제론</div>
+<div class="course module-d">국어사</div>
+<div class="course module-e">문예비평</div>
 </div>
 
 <div class="sem"><h3>3-2</h3>
-<div class="course required">국문학사</div>
-<div class="course required">한국현대문학사</div>
-<div class="course elective">현대시론</div>
+<div class="course module-b">시조와가사</div>
+<div class="course module-e">현대시론</div>
+<div class="course module-c">국문학사</div>
 </div>
 
 <div class="sem"><h3>4-1</h3>
-<div class="course elective">국어의의미</div>
-<div class="course elective">국어맞춤법</div>
-<div class="course elective">고전작가의삶과문학</div>
+<div class="course module-b">국어맞춤법</div>
+<div class="course module-c">고전작가의삶과문학</div>
 </div>
 
 <div class="sem"><h3>4-2</h3>
-<div class="course elective">고전문학특강</div>
-<div class="course elective">국어학특강</div>
-<div class="course elective">현대문학특강</div>
-</div>
-</div>
+<div class="course">현대문학특강</div>
 </div>
 
-<div id="pentomino" class="panel">
-<h2>모듈 구성</h2>
-
-<div class="module">
-<h3>ⓐ 한국문화기획 모듈</h3>
-<p>영상문학의이해 · 현대문화와웹문학 · 문학주제론 · 중세국어의이해 · 현대서사이론</p>
 </div>
 
-<div class="module">
-<h3>ⓑ 트랜스로컬 한국학 모듈</h3>
-<p>시조와가사 · 동아시아의문학과문화 · 외국어로서의한국어 · 국어맞춤법</p>
-</div>
+<div class="filter-area">
 
-<div class="module">
-<h3>ⓒ 한국고전문학 모듈</h3>
-<p>고전문학자료와해석 · 고전소설론 · 향가와고려가요 · 국문학사 · 고전작가의삶과문학</p>
-</div>
+<h2>펜토미노 모듈 필터 (시안 핵심)</h2>
 
-<div class="module">
-<h3>ⓓ 한국어언어학 모듈</h3>
-<p>국어단어의이해 · 국어문법 · 국어의말소리 · 국어와방언 · 국어사</p>
-</div>
+<div class="filter-btn all" onclick="filterModule('all')">전체 보기</div>
+<div class="filter-btn a" onclick="filterModule('a')">한국문화기획</div>
+<div class="filter-btn b" onclick="filterModule('b')">트랜스로컬 한국학</div>
+<div class="filter-btn c" onclick="filterModule('c')">한국고전문학</div>
+<div class="filter-btn d" onclick="filterModule('d')">한국어언어학</div>
+<div class="filter-btn e" onclick="filterModule('e')">한국현대문학</div>
 
-<div class="module">
-<h3>ⓔ 한국현대문학 모듈</h3>
-<p>현대소설론 · 현대문학텍스트읽기 · 문예비평 · 현대시론 · 한국현대문학사</p>
-</div>
+<p class="note">
+예시: '한국어언어학'을 클릭하면 국어단어의이해, 국어문법, 국어사 등 해당 모듈에 속한 교과목만 남도록 구현
+</p>
 
-<h2>트랙 구성</h2>
-
-<div class="trackbox trackA">
-<h3>A. 한국문화기획 트랙</h3>
-<p>필수 : 한국문화기획 모듈(15학점)</p>
-<p>선택 : 한국고전문학 · 한국어언어학 · 한국현대문학 모듈</p>
-</div><br>
-
-<div class="trackbox trackB">
-<h3>B. 트랜스로컬 한국학 트랙</h3>
-<p>필수 : 트랜스로컬 한국학 모듈(15학점)</p>
-<p>선택 : 한국고전문학 · 한국어언어학 · 한국현대문학 모듈</p>
-</div>
-
-<h2 style="margin-top:30px">펜토미노 교육과정 로드맵</h2>
-<div class="pento-roadmap">
-<table>
-<tr><th>트랙</th><th>2-1</th><th>2-2</th><th>3-1</th><th>3-2</th><th>4-1</th></tr>
-<tr>
-<td>한국문화기획</td>
-<td>고전문학자료와해석<br>국어단어의이해<br>현대소설론</td>
-<td>현대문화와웹문학<br>영상문학의이해<br>국어문법</td>
-<td>문학주제론<br>국어사<br>문예비평</td>
-<td>중세국어의이해<br>국문학사<br>현대시론</td>
-<td>현대서사이론<br>고전작가의삶과문학</td>
-</tr>
-<tr>
-<td>트랜스로컬한국학</td>
-<td>고전문학자료와해석<br>국어단어의이해<br>현대소설론</td>
-<td>고전소설론<br>향가와고려가요<br>국어문법</td>
-<td>시조와가사<br>동아시아문학과문화<br>문예비평</td>
-<td>외국어로서의한국어<br>국문학사<br>현대시론</td>
-<td>국어맞춤법<br>동아시아문학과문화<br>고전작가의삶과문학</td>
-</tr>
-</table>
 </div>
 
 </div>
 
 <script>
-function showTab(id,el){
-document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
-document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-el.classList.add('active');
+function filterModule(module){
+const courses=document.querySelectorAll('.course');
+
+courses.forEach(c=>{
+if(module==='all'){
+c.style.opacity='1';
+return;
+}
+
+if(c.classList.contains('module-'+module)){
+c.style.opacity='1';
+c.style.transform='scale(1.03)';
+}
+else if(c.className.includes('module-')){
+c.style.opacity='0.15';
+c.style.transform='scale(1)';
+}
+});
 }
 </script>
+
 </body>
 </html>
