@@ -3,149 +3,251 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PNU 교육과정 탐색관</title>
+<title>PNU 펜토미노 교육과정 - 국어국문학과</title>
 <style>
-body{font-family:Pretendard,Arial,sans-serif;margin:0;background:#f6f8fb;color:#222}
-header{background:#fff;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.05);position:sticky;top:0}
-.container{max-width:1200px;margin:auto}
-h1{margin:0}
-.search{display:flex;gap:10px;margin-top:15px}
-input{flex:1;padding:14px;border:1px solid #ddd;border-radius:12px}
-button{padding:14px 20px;border:none;background:#0057b8;color:#fff;border-radius:12px;cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;padding:30px}
-.card{background:white;padding:30px;border-radius:20px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.06);transition:.2s}
-.card:hover{transform:translateY(-4px)}
-.hidden{display:none}
-.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:20px}
-.year{background:white;border-radius:18px;padding:20px}
-.course{background:#eef4ff;padding:8px;margin:8px 0;border-radius:10px}
-.back{margin:20px}
-.tag{display:inline-block;background:#eef4ff;padding:6px 10px;border-radius:20px;margin:3px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f5f7fb;color:#222;line-height:1.5}
+.hero{
+background:linear-gradient(135deg,#005bac,#0d8bdc);
+color:white;padding:80px 10%;
+}
+.hero h1{font-size:52px;margin-bottom:10px}
+.hero p{font-size:20px;opacity:.9}
+.section{max-width:1400px;margin:60px auto;padding:0 20px}
+.section h2{margin-bottom:25px;font-size:32px;color:#003b7a}
+.flow{display:flex;justify-content:center;align-items:center;gap:30px;flex-wrap:wrap}
+.box{
+background:white;padding:30px;border-radius:20px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+min-width:250px;text-align:center
+}
+.arrow{font-size:40px;color:#005bac}
+.track-tabs{display:flex;gap:15px;margin-bottom:30px}
+.tab{
+padding:14px 24px;border-radius:999px;
+background:white;box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+.active{background:#005bac;color:white}
+.timeline{
+display:grid;
+grid-template-columns:repeat(8,1fr);
+gap:15px;
+overflow:auto;
+}
+.semester{
+background:white;
+border-radius:18px;
+padding:15px;
+min-height:340px;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+.semester h3{
+text-align:center;
+margin-bottom:15px;
+color:#005bac;
+}
+.course{
+padding:8px;
+margin-bottom:8px;
+border-radius:10px;
+color:white;
+font-size:13px;
+}
+.a{background:#2563eb}
+.b{background:#10b981}
+.c{background:#f59e0b}
+.d{background:#8b5cf6}
+.e{background:#ef4444}
+
+.legend{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.badge{
+padding:8px 14px;
+border-radius:999px;
+color:white;
+font-size:14px;
+}
+
+.modules{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.module{
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.module h3{
+margin-bottom:10px;
+}
+
+.chip{
+display:inline-block;
+padding:6px 10px;
+margin:4px;
+background:#eef4ff;
+border-radius:999px;
+font-size:13px;
+}
 </style>
 </head>
 <body>
 
-<header>
-<div class="container">
-<h1>🎓 부산대학교 교육과정 탐색관</h1>
-<div class="search">
-<input id="searchInput" placeholder="학과명을 입력하세요">
-<button onclick="searchDept()">검색</button>
-</div>
-</div>
-</header>
+<section class="hero">
+<h1>국어국문학과</h1>
+<p>교과목 → 모듈 → 트랙으로 연결되는 전공설계 지도</p>
+</section>
 
-<div id="collegeView">
-<div class="grid">
-<div class="card" onclick="openCollege('사범대학')">🎓 사범대학</div>
-<div class="card">⚙️ 공과대학</div>
-<div class="card">🧪 자연과학대학</div>
-<div class="card">📚 인문대학</div>
-<div class="card">💼 경영대학</div>
-<div class="card">🌎 사회과학대학</div>
-</div>
+<section class="section">
+<h2>펜토미노 구조</h2>
+
+<div class="flow">
+<div class="box">
+<h3>교과목</h3>
+현대소설론<br>
+국어문법<br>
+국어사<br>
+현대시론
 </div>
 
-<div id="deptView" class="hidden">
-<button class="back" onclick="showColleges()">← 돌아가기</button>
-<div class="grid" id="deptGrid"></div>
+<div class="arrow">→</div>
+
+<div class="box">
+<h3>모듈</h3>
+한국문화기획<br>
+한국고전문학<br>
+한국어언어학<br>
+한국현대문학
 </div>
 
-<div id="majorView" class="hidden">
-<button class="back" onclick="backToDept()">← 학과목록</button>
-<div class="container">
-<h2 id="majorTitle"></h2>
-<p id="majorDesc"></p>
-<div id="tags"></div>
+<div class="arrow">→</div>
 
-<h3>교육과정 로드맵</h3>
-<div class="roadmap" id="roadmap"></div>
+<div class="box">
+<h3>트랙</h3>
+한국문화기획 트랙<br>
+트랜스로컬 한국학 트랙
 </div>
 </div>
+</section>
 
-<script>
-const data={
-"사범대학":[
-{
-name:"국어교육과",
-desc:"국어교육 전문가 양성",
-tags:["국어교육","문학교육","교사양성","리터러시"],
-roadmap:{
-"1학년":["논술과작문교육론","국어학의이해","국문학원전이해","현대문학개론"],
-"2학년":["국어문법론","문학교육론","국문학개론","고전소설론"],
-"3학년":["국문학사","국어교육론","국어사","매체교육론"],
-"4학년":["독서교육론","문학교육연습","국어교재연구및지도법","리터러시의이해"]
-}
-},
-{
-name:"영어교육과",
-desc:"영어교육 및 글로벌 의사소통 전문가 양성",
-tags:["영어교육","영문학","언어교육","교사양성"],
-roadmap:{
-"1학년":["영어회화Ⅰ","영문학개론","영어작문연습","영어학개론"],
-"2학년":["영어습득과통사론","응용영어음운론","영미문화의이해"],
-"3학년":["영어교육이론과실제","영어능력평가","제2언어습득"],
-"4학년":["영어교재연구및지도법","영어담화분석","영어교육문법"]
-}
-}
-]
-};
+<section class="section">
+<h2>트랙 선택</h2>
 
-let currentCollege="";
+<div class="track-tabs">
+<div class="tab active">한국문화기획 트랙</div>
+<div class="tab">트랜스로컬 한국학 트랙</div>
+</div>
 
-function openCollege(name){
-currentCollege=name;
-document.getElementById("collegeView").classList.add("hidden");
-document.getElementById("deptView").classList.remove("hidden");
+<div class="legend">
+<div class="badge a">한국문화기획</div>
+<div class="badge b">트랜스로컬 한국학</div>
+<div class="badge c">한국고전문학</div>
+<div class="badge d">한국어언어학</div>
+<div class="badge e">한국현대문학</div>
+</div>
 
-let html="";
-(data[name]||[]).forEach(d=>{
-html+=`<div class="card" onclick="openMajor('${d.name}')">${d.name}</div>`;
-});
-document.getElementById("deptGrid").innerHTML=html;
-}
+<div class="timeline">
 
-function openMajor(name){
-const dept=data[currentCollege].find(x=>x.name===name);
-document.getElementById("deptView").classList.add("hidden");
-document.getElementById("majorView").classList.remove("hidden");
+<div class="semester"><h3>1-1</h3></div>
 
-majorTitle.innerText=dept.name;
-majorDesc.innerText=dept.desc;
+<div class="semester"><h3>1-2</h3></div>
 
-tags.innerHTML=dept.tags.map(t=>`<span class='tag'>#${t}</span>`).join("");
+<div class="semester">
+<h3>2-1</h3>
+<div class="course c">고전문학자료와해석</div>
+<div class="course d">국어단어의이해</div>
+<div class="course e">현대소설론</div>
+<div class="course e">현대문학텍스트읽기</div>
+</div>
 
-let road="";
-for(const year in dept.roadmap){
-road+=`<div class='year'><h3>${year}</h3>`;
-dept.roadmap[year].forEach(c=>road+=`<div class='course'>${c}</div>`);
-road+="</div>";
-}
-roadmap.innerHTML=road;
-}
+<div class="semester">
+<h3>2-2</h3>
+<div class="course a">현대문화와웹문학</div>
+<div class="course a">영상문학의이해</div>
+<div class="course c">고전소설론</div>
+<div class="course d">국어문법</div>
+</div>
 
-function showColleges(){
-collegeView.classList.remove("hidden");
-deptView.classList.add("hidden");
-}
+<div class="semester">
+<h3>3-1</h3>
+<div class="course a">문학주제론</div>
+<div class="course d">국어사</div>
+<div class="course d">국어와방언</div>
+<div class="course e">문예비평</div>
+</div>
 
-function backToDept(){
-majorView.classList.add("hidden");
-deptView.classList.remove("hidden");
-}
+<div class="semester">
+<h3>3-2</h3>
+<div class="course a">중세국어의이해</div>
+<div class="course c">국문학사</div>
+<div class="course e">현대시론</div>
+<div class="course e">한국현대문학사</div>
+</div>
 
-function searchDept(){
-const q=document.getElementById("searchInput").value.trim();
-for(const college in data){
-const found=data[college].find(d=>d.name.includes(q));
-if(found){
-currentCollege=college;
-openMajor(found.name);
-return;
-}
-}
-alert("검색 결과가 없습니다.");
-}
-</script>
+<div class="semester">
+<h3>4-1</h3>
+<div class="course a">현대서사이론</div>
+<div class="course c">고전작가의삶과문학</div>
+</div>
+
+<div class="semester"><h3>4-2</h3></div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>모듈 구성</h2>
+
+<div class="modules">
+
+<div class="module">
+<h3>한국문화기획</h3>
+<span class="chip">영상문학의이해</span>
+<span class="chip">현대문화와웹문학</span>
+<span class="chip">문학주제론</span>
+<span class="chip">중세국어의이해</span>
+<span class="chip">현대서사이론</span>
+</div>
+
+<div class="module">
+<h3>트랜스로컬 한국학</h3>
+<span class="chip">시조와가사</span>
+<span class="chip">동아시아평화인문학</span>
+<span class="chip">외국어로서의한국어</span>
+</div>
+
+<div class="module">
+<h3>한국고전문학</h3>
+<span class="chip">고전문학자료와해석</span>
+<span class="chip">고전소설론</span>
+<span class="chip">향가와고려가요</span>
+</div>
+
+<div class="module">
+<h3>한국어언어학</h3>
+<span class="chip">국어문법</span>
+<span class="chip">국어사</span>
+<span class="chip">국어와방언</span>
+</div>
+
+<div class="module">
+<h3>한국현대문학</h3>
+<span class="chip">현대소설론</span>
+<span class="chip">현대시론</span>
+<span class="chip">문예비평</span>
+</div>
+
+</div>
+</section>
+
 </body>
 </html>
