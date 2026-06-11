@@ -1,8 +1,107 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>국어국문학과</title>
-<style>body{font-family:Arial;padding:60px;background:#f5f7fb} .card{display:inline-block;width:320px;margin:20px;padding:40px;background:white;border-radius:20px;text-decoration:none;color:#222;box-shadow:0 4px 12px rgba(0,0,0,.1)}</style>
-</head><body>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국어국문학과 교육과정 탐색관</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Pretendard,Arial,sans-serif}
+body{background:#f5f7fb;color:#222}
+.hero{background:linear-gradient(135deg,#005BAC,#0B84D8);color:#fff;padding:80px}
+.hero h1{font-size:48px;margin-bottom:10px}
+.hero p{font-size:20px}
+.tabs{display:flex;gap:15px;padding:30px 80px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.tab{padding:12px 28px;border-radius:999px;cursor:pointer;background:#eef4ff;font-weight:600}
+.tab.active{background:#005BAC;color:#fff}
+.section{padding:50px 80px}
+.content{display:none}
+.content.active{display:block}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
+.year-card,.module,.track{background:#fff;border-radius:20px;padding:25px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.year-card h3{color:#005BAC;margin-bottom:15px}
+.course{background:#eef4ff;padding:10px;margin-bottom:8px;border-radius:10px}
+.module-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.track{margin-top:40px}
+.flow{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:20px}
+.flow-box{padding:20px;background:#eef4ff;border-radius:15px;min-width:180px;text-align:center;font-weight:bold}
+.arrow{font-size:28px;color:#005BAC}
+</style>
+</head>
+<body>
+<div class="hero">
 <h1>국어국문학과</h1>
-<p>원하는 정보를 선택하세요.</p>
-<a class="card" href="curriculum.html"><h2>📚 기본 교육과정</h2><p>학년별·전공기초·전공필수·전공선택</p></a>
-<a class="card" href="pentomino.html"><h2>🧩 펜토미노 교육과정</h2><p>모듈·트랙·전공설계 로드맵</p></a>
-</body></html>
+<p>교육과정 및 펜토미노 교육과정 탐색관 (시안)</p>
+</div>
+
+<div class="tabs">
+<div class="tab active" onclick="showTab('curriculum',this)">📚 교육과정</div>
+<div class="tab" onclick="showTab('pentomino',this)">🧩 펜토미노 교육과정</div>
+</div>
+
+<div id="curriculum" class="content active">
+<section class="section">
+<h2>학년별 교육과정 로드맵</h2><br>
+<div class="timeline">
+<div class="year-card"><h3>1학년</h3>
+<div class="course">논술과작문교육론</div>
+<div class="course">국어학의이해</div>
+<div class="course">국문학원전이해</div>
+<div class="course">현대문학개론</div>
+</div>
+<div class="year-card"><h3>2학년</h3>
+<div class="course">고전문학자료와해석</div>
+<div class="course">국어문법</div>
+<div class="course">현대소설론</div>
+<div class="course">고전소설론</div>
+<div class="course">향가와고려가요</div>
+</div>
+<div class="year-card"><h3>3학년</h3>
+<div class="course">국어사</div>
+<div class="course">국문학사</div>
+<div class="course">문예비평</div>
+<div class="course">현대시론</div>
+</div>
+<div class="year-card"><h3>4학년</h3>
+<div class="course">현대서사이론</div>
+<div class="course">고전작가의삶과문학</div>
+<div class="course">리터러시의이해</div>
+</div>
+</div>
+</section>
+</div>
+
+<div id="pentomino" class="content">
+<section class="section">
+<h2>모듈 구성</h2><br>
+<div class="module-grid">
+<div class="module"><h3>🟦 한국문화기획</h3><ul><li>영상문학의이해</li><li>현대문화와웹문학</li><li>문학주제론</li><li>중세국어의이해</li><li>현대서사이론</li></ul></div>
+<div class="module"><h3>🟨 한국고전문학</h3><ul><li>고전문학자료와해석</li><li>고전소설론</li><li>향가와고려가요</li><li>국문학사</li><li>고전작가의삶과문학</li></ul></div>
+<div class="module"><h3>🟪 한국어언어학</h3><ul><li>국어단어의이해</li><li>국어문법</li><li>국어의말소리</li><li>국어와방언</li><li>국어사</li></ul></div>
+<div class="module"><h3>🟥 한국현대문학</h3><ul><li>현대소설론</li><li>현대문학텍스트읽기</li><li>문예비평</li><li>현대시론</li><li>한국현대문학사</li></ul></div>
+</div>
+
+<div class="track">
+<h2>한국문화기획 트랙 예시</h2>
+<div class="flow">
+<div class="flow-box">한국문화기획 모듈</div>
+<div class="arrow">+</div>
+<div class="flow-box">한국고전문학 모듈</div>
+<div class="arrow">+</div>
+<div class="flow-box">한국어언어학 모듈</div>
+<div class="arrow">+</div>
+<div class="flow-box">한국현대문학 모듈</div>
+</div>
+</div>
+</section>
+</div>
+
+<script>
+function showTab(id,el){
+document.querySelectorAll('.content').forEach(c=>c.classList.remove('active'));
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+el.classList.add('active');
+}
+</script>
+</body>
+</html>
